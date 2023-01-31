@@ -24,7 +24,8 @@ class MarkDown {
          <div class="container">
             <h3>Manager</h3>
             <p>ID: ${answers.ID}</p>
-            <p>Email: ${answers.email}</p>
+            <p>
+            <a a href="mailto:insertemalhere@xyz.com" target="_blank">Email:${answers.email}</a></p>
             <p>Office Number: ${answers.office}</p>
         </div>
     </div>
@@ -40,8 +41,10 @@ class MarkDown {
         <div class="container">
             <h3>Engineer</h3>    
             <p>ID: ${answers1.ID}</p>
-            <p>Email: ${answers1.email}</p>
-            <p>Git Hub username: ${answers1.username}</p>
+            <p>
+            <a a href="mailto:insertemalhere@xyz.com" target="_blank">Email:${answers1.email}</a></p>
+            <p>
+            <a href="https://github.com/${answers1.username}">Git Hub username: ${answers1.username}</a></p>
     </div>
     </div>
                 `
@@ -56,7 +59,8 @@ class MarkDown {
         <div class="container">
             <h3>Intern</h3>
             <p>ID: ${answers2.ID}</p>
-            <p>Email: ${answers2.email}</p>
+            <p>
+            <a a href="mailto:insertemalhere@xyz.com" target="_blank">Email:${answers2.email}</a></p>
             <p>School: ${answers2.school}</p>
         </div> 
     </div>`
@@ -71,7 +75,8 @@ class MarkDown {
         <div class="container">
             <h3>Intern</h3>
             <p>ID: ${answers3.ID}</p>
-            <p>Email: ${answers3.email}</p>
+            <p>
+            <a a href="mailto:insertemalhere@xyz.com" target="_blank">Email:${answers3.email}</a></p>
             <p>School: ${answers3.school}</p>
     </div>
 </div>
