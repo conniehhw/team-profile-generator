@@ -1,9 +1,8 @@
-// TODO: Create a function to generate Team Profile html
+class MarkDown {
 
-
-function generateHTML(allEmployees) {
-    // return `# ${data.title}`
-    return `<!DOCTYPE html>
+        static generateMarkdown(answers) {
+    return `
+    <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -17,14 +16,15 @@ function generateHTML(allEmployees) {
     <section class="user-card">
         <h1>${answers.name}</h1>
         <h2>Manager</h2>
-        <p>ID: ${answers.id}</p>
+        <p>ID: ${answers.ID}</p>
         <p>Email: ${answers.email}</p>
-        <p>Office Number: ${anwers.id}</p>
+        <p>Office Number: ${answers.office}</p>
     </section>
-
     </body>
     </html>
     `
     }
 
-module.exports = generateHTML;
+}
+
+module.exports = MarkDown;
