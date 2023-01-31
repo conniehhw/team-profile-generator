@@ -5,11 +5,11 @@ h1 {
     height: 70px;
     text-align: center;
     /* padding-bottom: 10%; */
-    border: 1px solid black
+    /* border: 1px solid black */
 }
 
 .main {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* background-color: yellow; */
     display: flex;
     flex-wrap: wrap;
@@ -17,8 +17,23 @@ h1 {
 }
 
 .card {
-    border: 1px solid black;
+    background: white;
+    padding-top: none;
+    width: 150px;
+    margin: 10px;
+    padding-left: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
+.header {
+    /* border: 1px solid yellow; */
+    background: blue;
+    color: white;
+}
+
+.container {
+    /* padding: 10px; */
+    /* border: 1px solid black; */
 }
 /* 
 .user-card {
