@@ -19,10 +19,10 @@ class MarkDown {
         
     <div class="card">
         <div class="header">
-            <h2>${answers.name}</h2>
+            <h2>Manager</h2>
          </div>
          <div class="container">
-            <h3>${answers.role}</h3>
+            <h3>${answers.name}</h3>
             <p>ID: ${answers.ID}</p>
             <p>
             <a a href="mailto:insertemalhere@xyz.com" target="_blank">Email:${answers.email}</a></p>
@@ -73,7 +73,7 @@ class MarkDown {
         <h2>${answers3.name}</h2>
         </div>
         <div class="container">
-            <h3>${answerse3.role}</h3>
+            <h3>${answers3.role}</h3>
             <p>ID: ${answers3.ID}</p>
             <p>
             <a a href="mailto:insertemalhere@xyz.com" target="_blank">Email:${answers3.email}</a></p>
