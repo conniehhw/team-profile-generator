@@ -29,8 +29,8 @@ const questions1 = [
     {
         type: 'list',
         name: 'role',
-        message: "Select the role you wish to add next:(use arrow keys)",
-        choices: ['Engineer', 'Intern']
+        message: "Select the role you wish to add next or confirm you are finished building your team: (use arrow keys)",
+        choices: ['Engineer', 'Intern', 'Finished']
     },
     {   
         type: 'input',
@@ -58,8 +58,8 @@ const questions2 = [
     {
         type: 'list',
         name: 'role',
-        message: "Select the role you wish to add next:(use arrow keys)",
-        choices: ['Engineer', 'Intern']
+        message: "Select the role you wish to add next or confirm you are finished building your team: (use arrow keys)",
+        choices: ['Engineer', 'Intern', 'Finished']
     },
     {   
         type: 'input',
@@ -87,8 +87,8 @@ const questions3 = [
     {
         type: 'list',
         name: 'role',
-        message: "Select the role you wish to add next:(use arrow keys)",
-        choices: ['Engineer', 'Intern']
+        message: "Select the role you wish to add next or confirm you are finished building your team: (use arrow keys)",
+        choices: ['Engineer', 'Intern', 'Finished']
     },
     {   
         type: 'input',
