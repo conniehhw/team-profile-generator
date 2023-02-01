@@ -13,19 +13,18 @@ class MarkDown {
     </head>
     <body>
 
-    
 <h1>My Team</h1>
     <div class="main">
         
     <div class="card">
         <div class="header">
-            <h2>Manager</h2>
-         </div>
+        <h2>${answers.name}</h2>
+        </div>
          <div class="container">
-            <h3>${answers.name}</h3>
+         <h3>Manager</h3>
             <p>ID: ${answers.ID}</p>
             <p>
-            <a a href="mailto:insertemalhere@xyz.com" target="_blank">Email:${answers.email}</a></p>
+            Email: <a a href="mailto:insertemalhere@xyz.com" target="_blank">${answers.email}</a></p>
             <p>Office Number: ${answers.office}</p>
         </div>
     </div>
@@ -39,15 +38,17 @@ class MarkDown {
         <h2>${answers1.name}</h2>
         </div>
         <div class="container">
-            <h3>${answers1.role}</h3>    
+            <h3>${answers1.role}</h3>  
             <p>ID: ${answers1.ID}</p>
             <p>
-            <a a href="mailto:insertemalhere@xyz.com" target="_blank">Email:${answers1.email}</a></p>
+            Email: 
+            <a a href="mailto:insertemalhere@xyz.com" target="_blank">${answers1.email}</a></p>
             <p>
-            <a href="https://github.com/${answers1.username}">Git Hub username: ${answers1.username}</a></p>
+            Git Hub username:
+            <a href="https://github.com/${answers1.username}" target="_blank">${answers1.username}</a></p>
     </div>
     </div>
-                `
+            `
         }
 
     static generateMarkdown2(answers2) {
@@ -63,31 +64,13 @@ class MarkDown {
             <a a href="mailto:insertemalhere@xyz.com" target="_blank">Email:${answers2.email}</a></p>
             <p>School: ${answers2.school}</p>
         </div> 
-    </div>`
-    }
-
-    static generateMarkdown3(answers3) {
-        return `
-    <div class="card">
-        <div class="header">
-        <h2>${answers3.name}</h2>
-        </div>
-        <div class="container">
-            <h3>${answers3.role}</h3>
-            <p>ID: ${answers3.ID}</p>
-            <p>
-            <a a href="mailto:insertemalhere@xyz.com" target="_blank">Email:${answers3.email}</a></p>
-            <p>School: ${answers3.school}</p>
-    </div>
-</div>
-
-</div>
+    </div> 
     
-</body>
-</html>
-    `
-    }
+</div>
 
+</body>
+</html>`
+}
 }
 
 module.exports = MarkDown;

@@ -1,166 +1,167 @@
 const inquirer = require('inquirer');
 const fs = require('fs/promises');
-const generateHTML = require('./generateHTML');
+const MarkDown = require('./generateMarkdown');
 
-// TODO: Create an array of questions for user input
-    let allEmployees = [
-        {   
-            type: 'input',
-            name: 'name',
-            message: "Enter the manager's name:",
-        },
-        {   
-            type: 'input',
-            name: 'ID',
-            message: "Enter the employee's ID:", 
-        },
-        {
-            type: 'input',
-            name: "email",
-            message: "Enter the email address:",
-        },   
-        {
-            type: 'input',
-            name: 'office',
-            message: "Enter the office number:", 
-        },
-        // {
-        //     type: 'list',
-        //     name: 'role',
-        //     message: "Select a role to enter next:",
-        //     // choices: ['Engineer', 'Intern'],
-        // },
-        {   
-            type: 'input',
-            name: 'name',
-            message: "Enter the engineer's name:"
-        },
-        {   
-            type: 'input',
-            name: 'ID',
-            message: "Enter the engineer's ID:", 
-        },
-        {
-            type: 'input',
-            name: 'email',
-            message: "Enter the email address:",
-        },   
-        {
-            type: 'input',
-            name: 'github',
-            message: "Enter the GitHub username:",
-        }
-    ] 
-    //     // {
-    //     //     type: 'list',
-    //     //     name: 'role',
-    //     //     message: "Select a role to enter next:",
-    //     //     // choices: ['Engineer', 'Intern'],
-    //     // },
+const questions = [
+    {   
+        type: 'input',
+        name: 'name',
+        message: "Enter the manager's name:",
+    },
+    {   
+        type: 'input',
+        name: 'ID',
+        message: "Enter the employee's ID:", 
+    },
+    {
+        type: 'input',
+        name: "email",
+        message: "Enter the email address:",
+    },
+    {
+        type: 'input',
+        name: 'office',
+        message: "Enter the office number:",
+    },
+    {
+        type: 'list',
+        name: 'role',
+        message: "Select the role you wish to add next or confirm you are finished building your team: (use arrow keys)",
+        choices: ['Engineer', 'Intern', 'Finished']
+    }
+];
 
-    //     {                                               
-    //         type: 'input',
-    //         name: 'name',
-    //         message: "Enter the intern's name:",
-    //     },
-    //     {   
-    //         type: 'input',
-    //         name: 'ID',
-    //         message: "Enter the intern's ID:", 
-    //     },
-    //     {
-    //         type: 'input',
-    //         name: 'email',
-    //         message: "Enter the email address:",
-    //     },   
-    //     {
-    //         type: 'input',
-    //         name: 'school',
-    //         message: "Enter the name of the School:"
-    //     },  
-    //     // {
-    //     //     type: 'list',
-    //     //     name: 'role',
-    //     //     message: "Select a role to enter next:",
-    //     //     // choices: ['Engineer', 'Intern'],
-    //     // }
-    // ];
+const questions1 = [
+
+    {   
+        type: 'input',
+        name: 'name',
+        message: "Enter the employee's name:",
+    },
+    {   
+        type: 'input',
+        name: 'ID',
+        message: "Enter the employee's ID:", 
+    },
+    {
+        type: 'input',
+        name: "email",
+        message: "Enter the email address:",
+    },
+    {
+        type: 'input',
+        name: "username",
+        message: "Enter the gitHub username:",
+    },
+     {
+        type: 'list',
+        name: 'role',
+        message: "Select the role you wish to add next or confirm you are finished building your team: (use arrow keys)",
+        choices: ['Engineer', 'Intern', 'Finished']
+    },
+];
+
+
+const questions2 = [
+
+    {   
+        type: 'input',
+        name: 'name',
+        message: "Enter the Intern's name:",
+    },
+    {   
+        type: 'input',
+        name: 'ID',
+        message: "Enter the employee's ID:", 
+    },
+    {
+        type: 'input',
+        name: "email",
+        message: "Enter the email address:",
+    },
+    {
+        type: 'input',
+        name: "school",
+        message: "Enter the school name:",
+    },
+    {
+        type: 'list',
+        name: 'role',
+        message: "Select the role you wish to add next or confirm you are finished building your team: (use arrow keys)",
+        choices: ['Engineer', 'Intern', 'Finished']
+
+    }
+];
+
+// const appendFile = async (filePath) => {
+//         try {
+//             const answers = await inquirer.prompt(questions); //ask the questions
+//             const mark = MarkDown.generateMarkdown(answers); // set variable to the answers + format
+//                 await fs.writeFile('index.html', mark); // creates the file based on above
+//                 // console.log(answers.role);
+//             do{ 
+//                 const answers1 = await inquirer.prompt(questions1);
+//                 const mark1 = MarkDown.generateMarkdown1(answers1); //set variable to the answers + format
+//                 await fs.appendFile(filePath, mark1); 
+
+//             if(answers.role == 'Intern') {
+//                 const answers2 = await inquirer.prompt(questions2);
+//                 const mark2 = MarkDown.generateMarkdown2(answers2);
+//                 await fs.appendFile(filePath, mark2);
+//             }
+//             }
+//         while (answers.role != 'Finished');  
+//         } catch (err) {
+//                     console.error(err.message);
+//                 }
+//             }
+    
+
+// appendFile('index.html'); //add what is read from test.txt
 
 const appendFile = async (filePath) => {
     try {
-        const data = await fs.readFile('test.txt', 'utf8');
-        const contents = await fs.appendFile(filePath, data);
-        await fs.writeFile('newFile.txt', data);
-        console.log(contents);
-    } catch (err) {
+        const answers = await inquirer.prompt(questions); //ask the questions
+        const mark = MarkDown.generateMarkdown(answers); // set variable to the answers + format
+            await fs.writeFile('index.html', mark); // creates the file based on above
+
+                if(answers.role == 'Engineer') {
+                    const answers1 = await inquirer.prompt(questions1);     //ask next set of questions
+                    const mark1 = MarkDown.generateMarkdown1(answers1); //set variable to the answers + format
+                    await fs.appendFile(filePath, mark1);
+
+
+                } if(answers.role == 'Intern') {  
+                    const answers2 = await inquirer.prompt(questions2);
+                    const mark2 = MarkDown.generateMarkdown2(answers2);
+                    await fs.appendFile(filePath, mark2);
+
+                } else {
+                    return console.log("Success, team profiles completed");
+            }
+     } catch (err) {
         console.error(err.message);
     }
-}
-    
+    }   
 
-    // function writeToFile() {
-    // inquirer.prompt(allEmployees)
-    // .then((answers) => {
-    // fs.writeFile('index.html', generateHTML(answers), function (err) {
-    //     if (err) throw err;
-    //     console.log('Saved');
-    //     })
-    //     })
-    // }
+                  
+appendFile('index.html'); //add what is read from test.txt
+
+// while(answers.role != 'Finished') {
 
 
-    // writeToFile();
+    //     const answers2 = await inquirer.prompt(questions2);
+    //     const mark2 = MarkDown.generateMarkdown2(answers2);
+    //     const contents1 = await fs.appendFile(filePath, mark2);
 
+    //     const answers3 = await inquirer.prompt(questions3);
+    //     const mark3 = MarkDown.generateMarkdown2(answers3);
+    //     const contents2 = await fs.appendFile(filePath, mark3);
+        
+    //     console.log(contents);
+    //     console.log(contents1);
+    //     console.log(contents2);
+    // } catch (err) {
+    //     console.error(err.message);
 
-    // allEmployees.map(function(element, index, array){ // array name - 3 arguments (name of the element, current index#, array itself) last 2 optional
-    //     console.log(array[index + 1]);
-    // });
-
-    //function --> callback function, is an argument insdie the map method as well 
-    //
-
-    // allEmployees.map(function(element, index, array) {
-    //     console.log(this);
-    // }, "hellow world"); // ,this - we will give it a value of 80)
-    
-    // allEmployees.map(function(element, index, array) {
-    //     console.log(element);
-    //     console.log(index);
-    //     console.log(array);
-    //     console.log(this);
-    // }, "hello world"); // ,this - we will give it a value of 80)
-
-//Example: 
-//allEmployees.map(function(element, index, array){}.this);
-//
-
-
-
-// function writeToFile() {
-//     return inquirer.prompt(allEmployees)
-//         .then((employees => {
-//         fs.writeFileSync('index.html', generateHTML(allEmployees), function(err) {
-//             if(err) {
-//                 console.log('Could not generate team profile')
-//             } else {
-//                 console.log('Success: new team profile created')
-//                 }
-//             })
-//          })
-//         .catch((error) => {
-//             console.log(error)
-//         }))
-//  }
-
-//  writeToFile();
-  
-    // .then((data) => {
-    //     const filename = `${data.name}.json`;
-    
-    //     fs.writeFile(filename, JSON.stringify(data, null, "\t"), (err) =>
-    //       err ? console.log(err) : console.log("Success!")
-    //     );
-    //   });
-
-        // TODO: Create a function to write README file
-    // function writeToFile(fileName, data) {}
+       
