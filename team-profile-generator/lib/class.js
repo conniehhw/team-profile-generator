@@ -30,8 +30,11 @@ class Employee {
     }
 }
 
+// const employee = new Employee ()
 const employee = new Employee ("Ruby ", "123 ", "email.com ");
-employee.present();
+employee.present(); // generate answerss
+
+// MarkDown.generateMarkdown(employee);
 
 class Manager extends Employee {
     constructor(name, ID, email, office) {
@@ -100,11 +103,4 @@ class Intern extends Employee {
 const intern = new Intern ("Connie ", "432 ", "dog@email.com ", "UofT");
 intern.show();
 
-// myEmployee.show();
-
-// class Engineer {
-// }
-
-// class Intern {
-
-// }
+module.exports = Employee;

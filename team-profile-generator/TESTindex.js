@@ -116,12 +116,13 @@ const questions3 = [
 
 const appendFile = async (filePath) => {
     try {
-        const answers = await inquirer.prompt(questions);
-        const mark = MarkDown.generateMarkdown(answers);
-            await fs.writeFile('index.html', mark);
-        const answers1 = await inquirer.prompt(questions1);
-        const mark1 = MarkDown.generateMarkdown1(answers1);
-        const contents = await fs.appendFile(filePath, mark1);
+        const answers = await inquirer.prompt(questions); //ask the questions
+        const mark = MarkDown.generateMarkdown(answers); // set variable to the answers + format
+            await fs.writeFile('index.html', mark); // creates the file based on above
+       
+        const answers1 = await inquirer.prompt(questions1); //ask next set of questions
+        const mark1 = MarkDown.generateMarkdown1(answers1); //set variable to the answers + format
+        const contents = await fs.appendFile(filePath, mark1); // add the new answers to the existing file
 
         const answers2 = await inquirer.prompt(questions2);
         const mark2 = MarkDown.generateMarkdown2(answers2);
