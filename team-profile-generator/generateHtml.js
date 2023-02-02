@@ -1,6 +1,6 @@
-class MarkDown {
+class GenHtml {
 
-    static generateMarkdown(answers) {
+    static generateHtml(answers) {
         return `
     <!DOCTYPE html>
     <html lang="en">
@@ -31,7 +31,7 @@ class MarkDown {
             `
         }
 
-    static generateMarkdown1(answers1) {
+    static generateHtml1(answers1) {
         return ` 
     <div class="card">
         <div class="header">
@@ -51,7 +51,7 @@ class MarkDown {
             `
         }
 
-    static generateMarkdown2(answers2) {
+    static generateHtml2(answers2) {
             return `
     <div class="card">
         <div class="header">
@@ -73,4 +73,4 @@ class MarkDown {
 }
 }
 
-module.exports = MarkDown;
+module.exports = GenHtml;

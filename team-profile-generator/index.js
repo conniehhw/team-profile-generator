@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs/promises');
-const MarkDown = require('./generateMarkdown');
+const GenHtml = require('./generateHtml');
 
 const questions = [
     {   
@@ -93,6 +93,37 @@ const questions2 = [
     }
 ];
 
+const appendFile = async (filePath) => {
+    try {
+        const answers = await inquirer.prompt(questions); //ask the questions
+        const gen = GenHtml.generateHtml(answers); // set variable to the answers + format
+            await fs.writeFile('index.html', gen); // creates the file based on above
+
+                if(answers.role == 'Engineer') {
+                    const answers1 = await inquirer.prompt(questions1);     //ask next set of questions
+                    const gen1 = GenHtml.generateHtml1(answers1); //set variable to the answers + format
+                    await fs.appendFile(filePath, gen1);
+
+
+                } if(answers.role == 'Intern') {  
+                    const answers2 = await inquirer.prompt(questions2);
+                    const gen2 = GenHtml.generateHtml2(answers2);
+                    await fs.appendFile(filePath, gen2);
+
+                } else {
+                    return console.log("Success, team profiles completed");
+            }
+     } catch (err) {
+        console.error(err.message);
+    }
+    }   
+
+                  
+appendFile('index.html'); //add what is read from test.txt
+
+
+// while(answers.role != 'Finished') {
+
 // const appendFile = async (filePath) => {
 //         try {
 //             const answers = await inquirer.prompt(questions); //ask the questions
@@ -118,37 +149,6 @@ const questions2 = [
     
 
 // appendFile('index.html'); //add what is read from test.txt
-
-const appendFile = async (filePath) => {
-    try {
-        const answers = await inquirer.prompt(questions); //ask the questions
-        const mark = MarkDown.generateMarkdown(answers); // set variable to the answers + format
-            await fs.writeFile('index.html', mark); // creates the file based on above
-
-                if(answers.role == 'Engineer') {
-                    const answers1 = await inquirer.prompt(questions1);     //ask next set of questions
-                    const mark1 = MarkDown.generateMarkdown1(answers1); //set variable to the answers + format
-                    await fs.appendFile(filePath, mark1);
-
-
-                } if(answers.role == 'Intern') {  
-                    const answers2 = await inquirer.prompt(questions2);
-                    const mark2 = MarkDown.generateMarkdown2(answers2);
-                    await fs.appendFile(filePath, mark2);
-
-                } else {
-                    return console.log("Success, team profiles completed");
-            }
-     } catch (err) {
-        console.error(err.message);
-    }
-    }   
-
-                  
-appendFile('index.html'); //add what is read from test.txt
-
-// while(answers.role != 'Finished') {
-
 
     //     const answers2 = await inquirer.prompt(questions2);
     //     const mark2 = MarkDown.generateMarkdown2(answers2);

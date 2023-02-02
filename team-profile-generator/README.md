@@ -22,7 +22,7 @@ Click [here](https://drive.google.com/file/d/1_QGo400kw9HCG4H6-4tv6qQLNixVww5b/v
 
 
 ![Screen shot - generated html](./Assets/images/screenshotGenHtml.jpg)
-![Screen shot - CLI init & user inputs](./Assets/.jpg)
+![Screen shot - CLI init & user inputs](./Assets/images/ScreenshotCLIinput.jpg)
 
 
 ## License
