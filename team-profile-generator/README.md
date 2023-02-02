@@ -1,6 +1,6 @@
 # Team Profile Generator
 
-Link to video walkthrough site: [https://drive.google.com/file/d/1_QGo400kw9HCG4H6-4tv6qQLNixVww5b/view](https://drive.google.com/file/d/1_QGo400kw9HCG4H6-4tv6qQLNixVww5b/view)
+Link to video walkthrough site: [https://drive.google.com/file/d/18Q_PcBTJZq-6Vxu8yZPflHJxyJDosMe_/view](https://drive.google.com/file/d/18Q_PcBTJZq-6Vxu8yZPflHJxyJDosMe_/view)
 
 ## Description
 

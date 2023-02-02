@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs/promises');
 const GenHtml = require('./generateHtml');
 
-const questions = [
+const questions = [ //questions for manager at app initiate
     {   
         type: 'input',
         name: 'name',
@@ -31,7 +31,7 @@ const questions = [
     }
 ];
 
-const questions1 = [
+const questions1 = [ // questions for Engineer Profile
 
     {   
         type: 'input',
@@ -62,8 +62,8 @@ const questions1 = [
 ];
 
 
-const questions2 = [
-
+const questions2 = [ // questions for Intern Profile
+ 
     {   
         type: 'input',
         name: 'name',
@@ -93,6 +93,11 @@ const questions2 = [
     }
 ];
 
+
+// Use async await - inquirer to prompt questions --> generates HTML based on inputs, writeFile
+// Subsequent appendFile allows new employee profiles to not be override original data inputted
+// ** NOTE ** This is not an efficent way; should leverage Classes to call on getRole/Name/Id methods.
+// Here using if else to determine if next set of questions pertain to Engineer/ Intern profile - not working correctly
 const appendFile = async (filePath) => {
     try {
         const answers = await inquirer.prompt(questions); //ask the questions
@@ -101,7 +106,7 @@ const appendFile = async (filePath) => {
 
                 if(answers.role == 'Engineer') {
                     const answers1 = await inquirer.prompt(questions1);     //ask next set of questions
-                    const gen1 = GenHtml.generateHtml1(answers1); //set variable to the answers + format
+                    const gen1 = GenHtml.generateHtml1(answers1); 
                     await fs.appendFile(filePath, gen1);
 
 
@@ -119,10 +124,14 @@ const appendFile = async (filePath) => {
     }   
 
                   
-appendFile('index.html'); //add what is read from test.txt
+appendFile('index.html'); //add what is read from first index.html
 
 
-// while(answers.role != 'Finished') {
+// Testing: while(answers.role != 'Finished') {
+    // if (answers.role == 'Engineer)
+    // execute Engineer questions
+
+// try / do if
 
 // const appendFile = async (filePath) => {
 //         try {
@@ -147,21 +156,3 @@ appendFile('index.html'); //add what is read from test.txt
 //                 }
 //             }
     
-
-// appendFile('index.html'); //add what is read from test.txt
-
-    //     const answers2 = await inquirer.prompt(questions2);
-    //     const mark2 = MarkDown.generateMarkdown2(answers2);
-    //     const contents1 = await fs.appendFile(filePath, mark2);
-
-    //     const answers3 = await inquirer.prompt(questions3);
-    //     const mark3 = MarkDown.generateMarkdown2(answers3);
-    //     const contents2 = await fs.appendFile(filePath, mark3);
-        
-    //     console.log(contents);
-    //     console.log(contents1);
-    //     console.log(contents2);
-    // } catch (err) {
-    //     console.error(err.message);
-
-       
