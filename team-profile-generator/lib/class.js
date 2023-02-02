@@ -34,8 +34,6 @@ class Employee {
 const employee = new Employee ("Ruby ", "123 ", "email.com ");
 employee.present(); // generate answerss
 
-// MarkDown.generateMarkdown(employee);
-
 class Manager extends Employee {
     constructor(name, ID, email, office) {
         super(name, ID, email, office);

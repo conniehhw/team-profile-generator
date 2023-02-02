@@ -1,6 +1,6 @@
 class GenHtml {
 
-    static generateHtml(answers) {
+    static generateHtml(answers) { //generates the employee profile of manager
         return `
     <!DOCTYPE html>
     <html lang="en">
@@ -31,7 +31,7 @@ class GenHtml {
             `
         }
 
-    static generateHtml1(answers1) {
+    static generateHtml1(answers1) { // generates the employee profile of Engineer/Intern based on selected choice
         return ` 
     <div class="card">
         <div class="header">
@@ -51,7 +51,7 @@ class GenHtml {
             `
         }
 
-    static generateHtml2(answers2) {
+    static generateHtml2(answers2) { // generates the next employee profile of Engineer/Intern based on selected choice
             return `
     <div class="card">
         <div class="header">
